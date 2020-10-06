@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProtestCard from '../ProtestCard';
+import '../../locale/locale';
+import i18n from 'i18n-js';
 
 function ProtestListItems({ protests, listTitle }) {
   if (protests.length > 0) {
@@ -28,19 +30,19 @@ function ProtestList({ loading, closeProtests, farProtests }) {
   return (
     <ProtestListWrapper ref={wrapper}>
       {loading ? (
-        <p>טוען...</p>
+        <p>{i18n.t('ProtestList.loading')}</p>
       ) : (
         <>
           {closeProtests.length === 0 ? (
             <ProtestListHeader>
-              לא נמצאו הפגנות ברדיוס של קילומטר ממך.
+              {i18n.t('ProtestList.noProtestsFound')}
               <br />
-              <Link to="/add-protest/">הוסיפו את ההפגנה הראשונה!</Link>
+              <Link to="/add-protest/">{i18n.t('ProtestList.addTheFirstProtest')}</Link>
             </ProtestListHeader>
           ) : (
-            <ProtestListItems protests={closeProtests} listTitle={'עד קילומטר אחד ממך'} />
+            <ProtestListItems protests={closeProtests} listTitle={i18n.t('ProtestList.upTo1km')} />
           )}
-          <ProtestListItems protests={farProtests} listTitle={'קצת יותר רחוק'} />
+          <ProtestListItems protests={farProtests} listTitle={i18n.t('ProtestList.aBitFarther')} />
         </>
       )}
     </ProtestListWrapper>

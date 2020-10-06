@@ -17,7 +17,7 @@ function Modal({ isOpen, setIsOpen, coordinates, setCoordinates }) {
       const position = await getCurrentPosition();
       setCoordinates(position);
     } catch (err) {
-      alert('לא הצלחנו לאתר את המיקום.\nניתן להזין את המיקום ידנית :)');
+      alert(i18n.t('modal.unableToFindLocation'));
     }
   };
 
@@ -51,7 +51,7 @@ function Modal({ isOpen, setIsOpen, coordinates, setCoordinates }) {
             <>
               <PlacesAutocomplete setManualAdress={setManualAdress} />{' '}
               <Button disabled={!manualAdress} onClick={() => setCoordinates(manualAdress)} color="#0096c7">
-                הצגת הפגנות
+              {i18n.t("modal.showProtests")}
               </Button>
             </>
           )}

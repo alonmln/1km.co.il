@@ -10,6 +10,8 @@ import { useAuth } from '../hooks';
 import firebase, { firestore, signInWithGoogle } from '../firebase';
 import styled from 'styled-components';
 import API from '../api';
+import '../locale/locale';
+import i18n from 'i18n-js';
 
 async function getProtestByDisplayName(displayName) {
   try {
@@ -26,7 +28,7 @@ async function updateProtestWhatsAppGroup(protestId, whatsAppLink) {
     const request = await firestore.collection('protests').doc(protestId).update({
       whatsAppLink,
     });
-    if (request === undefined) alert('הקישור עודכן');
+    if (request === undefined) alert(i18n.t('groupUpdate.linkUpdated'));
     else throw request;
   } catch (err) {
     console.error(err);
@@ -54,7 +56,7 @@ export default function GroupUpdate() {
       {authUser ? (
         <div>
           <label>
-            שם ההפגנה
+            {i18n.t('modal.protestName')}
             <br />
             <input
               value={protestName}
@@ -63,7 +65,7 @@ export default function GroupUpdate() {
             ></input>
             <br />
             <Button onClick={getProtest} style={{ width: '100%' }}>
-              חיפוש
+            {i18n.t('modal.search')}
             </Button>
             <ul>
               {protests.map((p) => (
@@ -81,7 +83,7 @@ export default function GroupUpdate() {
               style={{ width: '100%', height: 40 }}
               value={updatedLink}
               onChange={(e) => setLink(e.target.value)}
-              placeholder="לינק  הקבוצה"
+              placeholder={i18n.t('modal.groupLink')}
             ></input>
             <br />
             <Button
@@ -89,7 +91,7 @@ export default function GroupUpdate() {
               style={{ width: '100%' }}
               color="green"
             >
-              עדכון הפגנה
+              {i18n.t('modal.updateProtest')}
             </Button>
           </label>
         </div>

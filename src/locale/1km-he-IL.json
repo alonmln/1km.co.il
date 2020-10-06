@@ -10,6 +10,21 @@
     "subTitle1": "חפשו הפגנה ברדיוס הקרוב אליכן, הצטרפו לקבוצת הטלגרם/וואטסאפ וצאו לרחובות.",
     "subTitle2": "לא מצאנו? צרו הפגנה חדשה! אנחנו נחבר בינך לבין פעילים ופעילות בסביבה.",
     "findProtestsInMyArea": "מציאת הפגנות באיזורי",
-    "manuallyEnterLocation": "הזנת מיקום ידנית"
+    "manuallyEnterLocation": "הזנת מיקום ידנית",
+    "unableToFindLocation": "לא הצלחנו לאתר את המיקום.\nניתן להזין את המיקום ידנית :)"
+  },
+  "groupUpdate":{
+    "linkUpdated": "הקישור עודכן",
+    "protestName": "שם ההפגנה",
+    "search": "חיפוש",
+    "modal.groupLink": "לינק  הקבוצה",
+    "updateProtest": "עדכון הפגנה"
+  },
+  "ProtestList":{
+    "noProtestsFound": "לא נמצאו הפגנות ברדיוס של קילומטר ממך.",
+    "addTheFirstProtest": "הוסיפו את ההפגנה הראשונה!",
+    "upTo1km": "עד קילומטר אחד ממך",
+    "aBitFarther": "קצת יותר רחוק",
+    "loading": "טוען..."
   }
 }
